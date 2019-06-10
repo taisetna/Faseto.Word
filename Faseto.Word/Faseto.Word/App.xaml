@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:Faseto.Word"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Order is Important -->
+                <ResourceDictionary Source="Styles/Colors.xml"/>
+                <ResourceDictionary Source="Styles/Fonts.xml"/>
+                <ResourceDictionary Source="Styles/Buttons.xml"/>
+                <ResourceDictionary Source="Styles/Texts.xml"/>
+                <ResourceDictionary Source="Styles/Windows.xml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

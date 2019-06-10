@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Faseto.Word"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Icon="Images/Logos/logo-small.png"
+        Title="Faseto Word" Height="450" Width="800">
+    
     <Grid>
         
     </Grid>
