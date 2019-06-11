@@ -9,8 +9,8 @@
         AllowsTransparency="True"
         Icon="Images/Logos/logo-small.png"
         Title="Faseto Word" Height="450" Width="800">
-    
-    <Grid>
-        
-    </Grid>
+
+    <StackPanel>
+        <Button Content="Text"/>
+    </StackPanel>
 </Window>
