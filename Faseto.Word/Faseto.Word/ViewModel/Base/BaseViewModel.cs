@@ -1,7 +1,7 @@
 ﻿using PropertyChanged;
 using System.ComponentModel;
 
-namespace WpfTreeView
+namespace Faseto.Word
 {
     [ImplementPropertyChanged]
     public class BaseViewModel : INotifyPropertyChanged
