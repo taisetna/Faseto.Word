@@ -12,6 +12,7 @@ namespace Faseto.Word
     public class WindowViewModel : BaseViewModel
     {
         private Window m_Window;
+        private WindowResizer m_WindowResizer;
 
         private double m_WindowMinimizedWidth { get; set; } = 400;
         private double m_WindowMinimizedHeight { get; set; } = 400;
@@ -21,11 +22,14 @@ namespace Faseto.Word
 
         private int m_OuterMarginSize = 10;
         private int m_WindowRadius = 10;
+        private WindowDockPosition m_DockPostion = WindowDockPosition.Undocked;
 
-        public int ResizeBorder { get; set; } = 6;
+        public bool Borderless { get { return (m_Window.WindowState == WindowState.Maximized || m_DockPostion != WindowDockPosition.Undocked); } }
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
+
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
 
-        public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
         public int OuterMarginSize
         {
@@ -46,6 +50,8 @@ namespace Faseto.Word
         public int TitleHeight { get; set; } = 42;
 
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight); } }
+
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         public ICommand MinimizeCommand { get; set; }
         public ICommand MaximizeCommand { get; set; }
@@ -70,7 +76,7 @@ namespace Faseto.Word
             CloseCommand     = new RelayCommand(() => m_Window.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(m_Window, GetMousePosition()));
 
-            var resizer = new WindowResizer(m_Window);
+            m_WindowResizer = new WindowResizer(m_Window);
         }
 
         [DllImport("user32.dll")]
