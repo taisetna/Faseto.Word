@@ -2,16 +2,21 @@
 using System.Diagnostics;
 using System.Globalization;
 
-namespace Faseto.Word
+namespace Fasetto.Word
 {
-    class ApplicationValueConverter : BaseValueConverter<ApplicationValueConverter>
+    /// <summary>
+    /// Converts the <see cref="ApplicationPage"/> to an actual view/page
+    /// </summary>
+    public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Find the appropriate page
             switch ((ApplicationPage)value)
             {
                 case ApplicationPage.Login:
                     return new LoginPage();
+
                 default:
                     Debugger.Break();
                     return null;

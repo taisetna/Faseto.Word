@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Faseto.Word
+namespace Fasetto.Word
 {
     /// <summary>
-    /// LoginPage.xaml에 대한 상호 작용 논리
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : BasePage
     {
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await this.AnimateOut();
         }
     }
 }
