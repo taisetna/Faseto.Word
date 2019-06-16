@@ -18,6 +18,11 @@ namespace Fasetto.Word
         private Window mWindow;
 
         /// <summary>
+        /// The window resizer helper that keeps the window size correct in various states
+        /// </summary>
+        private WindowResizer mWindowResizer;
+
+        /// <summary>
         /// The margin around the window to allow for a drop shadow
         /// </summary>
         private int mOuterMarginSize = 10;
@@ -39,12 +44,12 @@ namespace Fasetto.Word
         /// <summary>
         /// The smallest width the window can go to
         /// </summary>
-        public double WindowMinimumWidth { get; set; } = 400;
+        public double WindowMinimumWidth { get; set; } = 800;
 
         /// <summary>
         /// The smallest height the window can go to
         /// </summary>
-        public double WindowMinimumHeight { get; set; } = 400;
+        public double WindowMinimumHeight { get; set; } = 500;
 
         /// <summary>
         /// True if the window should be borderless because it is docked or maximized
@@ -120,7 +125,7 @@ namespace Fasetto.Word
         /// <summary>
         /// The current page of the application
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
         #endregion
 
@@ -171,10 +176,10 @@ namespace Fasetto.Word
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
 
             // Fix window resize issue
-            var resizer = new WindowResizer(mWindow);
+            mWindowResizer = new WindowResizer(mWindow);
 
             // Listen out for dock changes
-            resizer.WindowDockChanged += (dock) =>
+            mWindowResizer.WindowDockChanged += (dock) =>
             {
                 // Store last position
                 mDockPosition = dock;
@@ -198,7 +203,10 @@ namespace Fasetto.Word
             var position = Mouse.GetPosition(mWindow);
 
             // Add the window position so its a "ToScreen"
-            return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+            if (mWindow.WindowState == WindowState.Maximized)
+                return new Point(position.X +  mWindowResizer.CurrentMonitorSize.Left, position.Y + mWindowResizer.CurrentMonitorSize.Top);
+            else
+                return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
         }
 
         /// <summary>
