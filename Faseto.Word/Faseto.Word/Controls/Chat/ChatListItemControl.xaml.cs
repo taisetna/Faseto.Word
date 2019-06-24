@@ -3,11 +3,11 @@
 namespace Fasetto.Word
 {
     /// <summary>
-    /// ChatListControl.xaml에 대한 상호 작용 논리
+    /// Interaction logic for ChatListItemControl.xaml
     /// </summary>
-    public partial class ChatListControl : UserControl
+    public partial class ChatListItemControl : UserControl
     {
-        public ChatListControl()
+        public ChatListItemControl()
         {
             InitializeComponent();
         }

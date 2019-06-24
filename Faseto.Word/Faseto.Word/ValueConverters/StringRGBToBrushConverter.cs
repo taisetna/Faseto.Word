@@ -6,7 +6,7 @@ using System.Windows.Media;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// A converter that takes in a boolean and returns a <see cref="Visibility"/>
+    /// A converter that takes in an RGB string such as FF00FF and converts it to a WPF brush
     /// </summary>
     public class StringRGBToBrushConverter : BaseValueConverter<StringRGBToBrushConverter>
     {

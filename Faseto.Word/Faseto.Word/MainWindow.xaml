@@ -133,9 +133,13 @@
             <Frame Grid.Column="1" x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" Background="Transparent" />
             
             <!-- Side Menu -->
-            <local:SideMenuControl >
-                <local:ChatListControl/>
+            <local:SideMenuControl>
+
+                <local:ChatListControl />
+
             </local:SideMenuControl>
+
         </Grid>
     </Border>
+
 </Window>
