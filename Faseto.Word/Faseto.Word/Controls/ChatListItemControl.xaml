@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Fasetto.Word"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="300">
-    <Grid Background="{StaticResource ForegroundLightBrush}">
+    <Grid DataContext="{x:Static local:ChatListItemDesignModel.Instance}" Background="{StaticResource ForegroundLightBrush}">
         <Grid.ColumnDefinitions>
             <!-- New Message Indicator Bar-->
             <ColumnDefinition Width="Auto"/>
@@ -25,24 +25,23 @@
                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                     CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
                 <!-- Profile picture tintials -->
-                <TextBlock Text="LM"
+                <TextBlock Text="{Binding Initials}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Foreground="{StaticResource ForegroundLightBrush}"
                            FontSize="{StaticResource FontSizeAverage}"
                            FontFamily="{StaticResource LatoRegular}"/>
-
             </Border>
         </Border>
         <Border Grid.Column="2" Padding="0 0 8 0">
             <StackPanel VerticalAlignment="Center">
                 <!-- Name -->
-                <TextBlock Text="Luke"
+                <TextBlock Text="{Binding Name}"
                        Foreground="{StaticResource WordBlueBrush}"
                        FontFamily="{StaticResource LatoRegular}"
                        />
                 <!-- Message -->
-                <TextBlock Text="This new chat app is awesome! I bet it will be fast too"
+                <TextBlock Text="{Binding Message}"
                        Foreground="{StaticResource ForegroundDarkBrush}"
                        TextTrimming="CharacterEllipsis"
                        FontFamily="{StaticResource LatoRegular}"
