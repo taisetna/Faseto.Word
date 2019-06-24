@@ -134,7 +134,7 @@
             
             <!-- Side Menu -->
             <local:SideMenuControl >
-                <local:ChatListItemControl Height="60" VerticalAlignment="Top"/>
+                <local:ChatListControl/>
             </local:SideMenuControl>
         </Grid>
     </Border>
