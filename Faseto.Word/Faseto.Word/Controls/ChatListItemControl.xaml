@@ -7,47 +7,61 @@
              mc:Ignorable="d" 
              Height="60"
              d:DesignHeight="60" d:DesignWidth="300">
-    <Grid d:DataContext="{x:Static local:ChatListDesignModel.Instance}" Background="{StaticResource ForegroundLightBrush}">
-        <Grid.ColumnDefinitions>
-            <!-- New Message Indicator Bar-->
-            <ColumnDefinition Width="Auto"/>
-            <!-- Profile Picture-->
-            <ColumnDefinition Width="Auto"/>
-            <!-- Main Content-->
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!-- New message Indicator bar-->
-        <Border Background="Red" Width="5"/>
 
-        <!-- Profile picture padding -->
-        <Border Grid.Column="1" Padding="8">
-            <!-- Profile picture background -->
-            <Border Background="{Binding ProfilePictureRGB, Converter={local:StringRGBToBrushConverter}}"
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Grid Background="{StaticResource ForegroundLightBrush}">
+                            <Grid.ColumnDefinitions>
+                                <!-- New Message Indicator Bar-->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- Profile Picture-->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- Main Content-->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- New message Indicator bar-->
+                            <Border Background="Red" Width="5"/>
+
+                            <!-- Profile picture padding -->
+                            <Border Grid.Column="1" Padding="8">
+                                <!-- Profile picture background -->
+                                <Border Background="{Binding ProfilePictureRGB, Converter={local:StringRGBToBrushConverter}}"
                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                     CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
-                <!-- Profile picture tintials -->
-                <TextBlock Text="{Binding Initials}"
+                                    <!-- Profile picture tintials -->
+                                    <TextBlock Text="{Binding Initials}"
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
                            Foreground="{StaticResource ForegroundLightBrush}"
                            FontSize="{StaticResource FontSizeAverage}"
                            FontFamily="{StaticResource LatoRegular}"/>
-            </Border>
-        </Border>
-        <Border Grid.Column="2" Padding="0 0 8 0">
-            <StackPanel VerticalAlignment="Center">
-                <!-- Name -->
-                <TextBlock Text="{Binding Name}"
+                                </Border>
+                            </Border>
+                            <Border Grid.Column="2" Padding="0 0 8 0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <!-- Name -->
+                                    <TextBlock Text="{Binding Name}"
                        Foreground="{StaticResource WordBlueBrush}"
                        FontFamily="{StaticResource LatoRegular}"
                        />
-                <!-- Message -->
-                <TextBlock Text="{Binding Message}"
+                                    <!-- Message -->
+                                    <TextBlock Text="{Binding Message}"
                        Foreground="{StaticResource ForegroundDarkBrush}"
                        TextTrimming="CharacterEllipsis"
                        FontFamily="{StaticResource LatoRegular}"
                        />
-            </StackPanel>
-        </Border>
-    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <ContentControl d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
+                    Style="{StaticResource ContentStyle}"/>
+
 </UserControl>
