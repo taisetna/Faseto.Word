@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Fasetto.Word.Core;
+using System;
 using System.Diagnostics;
 using System.Globalization;
+
 
 namespace Fasetto.Word
 {

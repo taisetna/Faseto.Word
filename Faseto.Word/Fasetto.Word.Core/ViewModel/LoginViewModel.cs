@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Fasetto.Word
+namespace Fasetto.Word.Core
 {
     /// <summary>
     /// The View Model for a login screen
@@ -63,13 +63,13 @@ namespace Fasetto.Word
         /// <returns></returns>
         public async Task LoginAsync(object parameter)
         {
-            await RunCommand(() => this.LoginIsRunning, async () =>
+            await RunCommandAsync(() => this.LoginIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
                 var email = this.Email;
 
-                // IMPORTANT: Never store unsecure password in variable like this
+                // IMPORTANT: Never store unsecured password in variable like this
                 var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
             });
         }
@@ -81,8 +81,8 @@ namespace Fasetto.Word
         public async Task RegisterAsync(object parameter)
         {
             // TODO: Go to register page?
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
-            await Task.Delay(1000);
+        /*    ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;*/
+            await Task.Delay(1);
 
         }
     }
