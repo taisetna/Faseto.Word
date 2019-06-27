@@ -20,7 +20,7 @@
                     HorizontalAlignment="Center"
                     TextBlock.TextAlignment="Center">
 
-                    <!-- Register main content white box -->
+                    <!-- Login main content white box -->
                     <Border Background="{StaticResource ForegroundLightBrush}" 
                             CornerRadius="10"
                             Padding="15 50 15 15"
@@ -30,7 +30,7 @@
                         <StackPanel>
 
                             <!-- Sign Up header -->
-                            <TextBlock Text="Sign Upp" 
+                            <TextBlock Text="Sign Up" 
                                    FontSize="{StaticResource FontSizeLarge}" 
                                    FontFamily="{StaticResource LatoRegular}"
                                    Foreground="{StaticResource WordBlueBrush}" />
@@ -50,8 +50,8 @@
 
                             <!-- Next button -->
                             <Button Content="Register" 
-                                    local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
-                                    Command="{Binding RegisterCommand}"
+                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                    Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding ElementName=Page}" 
                                     HorizontalAlignment="Center" />
 
@@ -59,7 +59,7 @@
 
                     </Border>
 
-                    <Button Style="{StaticResource TextButton}" Content="I already have an account...." HorizontalAlignment="Center" />
+                    <Button Style="{StaticResource TextButton}" Content="Or, I already have an account..." HorizontalAlignment="Center" />
 
                 </StackPanel>
             </ScrollViewer>

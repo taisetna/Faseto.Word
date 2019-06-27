@@ -55,15 +55,11 @@ namespace Fasetto.Word
         /// <summary>
         /// True if the window should be borderless because it is docked or maximized
         /// </summary>
-        public bool Borderless
-        {
-            get => (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked);
-        }
-
-        /// <summary> 
+        public bool Borderless => (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked);
+        /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder => Borderless ? 0 : 6; 
+        public int ResizeBorder => Borderless ? 0 : 6;
 
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
@@ -104,7 +100,7 @@ namespace Fasetto.Word
         /// The radius of the edges of the window
         /// </summary>
         public CornerRadius WindowCornerRadius => new CornerRadius(WindowRadius);
-
+        
         /// <summary>
         /// The height of the title bar / caption of the window
         /// </summary>
@@ -113,7 +109,7 @@ namespace Fasetto.Word
         /// The height of the title bar / caption of the window
         /// </summary>
         public GridLength TitleHeightGridLength => new GridLength(TitleHeight + ResizeBorder);
-                
+
         #endregion
 
         #region Commands
