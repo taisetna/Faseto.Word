@@ -73,7 +73,7 @@ namespace Fasetto.Word
                 Visibility = Visibility.Collapsed;
 
             // Listen out for the page loading
-            Loaded += BasePage_Loaded;
+            Loaded += BasePage_LoadedAsync;
 
             // Create a default view model
             ViewModel = new VM();
@@ -88,10 +88,10 @@ namespace Fasetto.Word
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private async void BasePage_LoadedAsync(object sender, System.Windows.RoutedEventArgs e)
         {
             // Animate the page in
-            Task.Run(async () => await AnimateInAsync());
+            await AnimateInAsync();
         }
 
         /// <summary>

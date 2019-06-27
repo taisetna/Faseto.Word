@@ -80,8 +80,8 @@ namespace Fasetto.Word.Core
         /// <returns></returns>
         public async Task RegisterAsync(object parameter)
         {
-            // TODO: Go to register page?
-        /*    ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;*/
+            // Go to register page?
+            IoC.Get<ApplicationViewModel>.CurrentPage = ApplicationPage.Register;
             await Task.Delay(1);
 
         }
