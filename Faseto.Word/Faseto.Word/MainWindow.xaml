@@ -122,7 +122,7 @@
         <Grid>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
@@ -140,11 +140,11 @@
             
             <!-- Side Menu -->
             <local:SideMenuControl 
-                Width="300"
-                local:AnimateSlideFromLeftProperty.Value={Binding ApplicationViewModel.SideMenuVisible, 
+                Width="300" 
+                local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible, 
                                      Source={x:Static local:ViewModelLocator.Instance}}">
 
-                <local:ChatListControl/>
+                <local:ChatListControl />
 
             </local:SideMenuControl>
 

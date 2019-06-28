@@ -20,10 +20,9 @@ namespace Fasetto.Word
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
 
         /// <summary>
-        /// Fired when the value changes, even when the value is same
+        /// Fired when the value changes, even when the value is the same
         /// </summary>
         public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
-
 
         #endregion
 
@@ -66,7 +65,7 @@ namespace Fasetto.Word
         }
 
         /// <summary>
-        /// The callback event when the <see cref="ValueProperty"/> is changed, even if same value
+        /// The callback event when the <see cref="ValueProperty"/> is changed, even if it is the same value
         /// </summary>
         /// <param name="d">The UI element that had it's property changed</param>
         /// <param name="e">The arguments for the event</param>
@@ -78,6 +77,7 @@ namespace Fasetto.Word
             // Call event listeners
             Instance.ValueUpdated(d, value);
 
+            // Return the value
             return value;
         }
 
@@ -107,10 +107,10 @@ namespace Fasetto.Word
         public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) { }
 
         /// <summary>
-        /// The method that is called when any attached property of this type is changed, even when value is the same
+        /// The method that is called when any attached property of this type is changed, even if the value is the same
         /// </summary>
         /// <param name="sender">The UI element that this property was changed for</param>
-        /// <param name="value">The arguments for this event</param>
+        /// <param name="e">The arguments for this event</param>
         public virtual void OnValueUpdated(DependencyObject sender, object value) { }
 
         #endregion

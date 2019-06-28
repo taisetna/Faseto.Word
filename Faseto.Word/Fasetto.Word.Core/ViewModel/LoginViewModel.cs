@@ -77,7 +77,7 @@ namespace Fasetto.Word.Core
         /// </summary>
         /// <returns></returns>
         public async Task RegisterAsync()
-        {
+        { 
             // Go to register page?
             IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
 
