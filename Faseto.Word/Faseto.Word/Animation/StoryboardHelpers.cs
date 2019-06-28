@@ -16,13 +16,14 @@ namespace Fasetto.Word
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="offset">The distance to the right to start from</param>
         /// <param name="decelerationRatio">The rate of deceleration</param>
-        public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
+        /// <param name="keepMargin"></param>
+        public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
         {
             // Create the margin animate from right 
             var animation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = new Thickness(offset, 0, -offset, 0),
+                From = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
                 To = new Thickness(0),
                 DecelerationRatio = decelerationRatio
             };
@@ -41,13 +42,13 @@ namespace Fasetto.Word
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="offset">The distance to the left to start from</param>
         /// <param name="decelerationRatio">The rate of deceleration</param>
-        public static void AddSlideFromLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
+        public static void AddSlideFromLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
         {
             // Create the margin animate from right 
             var animation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = new Thickness(-offset, 0, offset, 0),
+                From = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
                 To = new Thickness(0),
                 DecelerationRatio = decelerationRatio
             };
@@ -58,7 +59,7 @@ namespace Fasetto.Word
             // Add this to the storyboard
             storyboard.Children.Add(animation);
         }
-        
+
         /// <summary>
         /// Adds a slide to left animation to the storyboard
         /// </summary>
@@ -66,14 +67,14 @@ namespace Fasetto.Word
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="offset">The distance to the right to end at </param>
         /// <param name="decelerationRatio">The rate of deceleration</param>
-        public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
+        public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
         {
             // Create the margin animate from right 
             var animation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
                 From = new Thickness(0),
-                To = new Thickness(-offset, 0, offset, 0),
+                To = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
                 DecelerationRatio = decelerationRatio
             };
 
@@ -91,7 +92,7 @@ namespace Fasetto.Word
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="offset">The distance to the left to end at</param>
         /// <param name="decelerationRatio">The rate of deceleration</param>
-        public static void AddSlideToRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
+        public static void AddSlideToRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
         {
             // Create the margin animate from left 
             var animation = new ThicknessAnimation
