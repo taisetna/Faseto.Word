@@ -6,59 +6,113 @@ using System.Windows.Media.Animation;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// Helpers to animate pages in specific ways
+    /// Helpers to animate framework elements in specific ways
     /// </summary>
-    public static class PageAnimations
+    public static class FrameworkElementAnimations
     {
         /// <summary>
-        /// Slides a page in from the right
+        /// Slides an element  in from the right
         /// </summary>
-        /// <param name="page">The page to animate</param>
+        /// <param name="element">The element to animate</param>
         /// <param name="seconds">The time the animation will take</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromRightAsync(this Page page, float seconds)
+        public static async Task SlideAndFadeInFromRightAsync(this FrameworkElement element, float seconds)
         {
             // Create the storyboard
             var sb = new Storyboard();
 
             // Add slide from right animation
-            sb.AddSlideFromRight(seconds, page.WindowWidth);
+            sb.AddSlideFromRight(seconds, element.ActualWidth);
 
             // Add fade in animation
             sb.AddFadeIn(seconds);
 
             // Start animating
-            sb.Begin(page);
+            sb.Begin(element);
 
             // Make page visible
-            page.Visibility = Visibility.Visible;
+            element.Visibility = Visibility.Visible;
 
             // Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
         }
 
         /// <summary>
-        /// Slides a page out to the left
+        /// Slides an element  in from the left
         /// </summary>
-        /// <param name="page">The page to animate</param>
+        /// <param name="element">The element to animate</param>
         /// <param name="seconds">The time the animation will take</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeOutToLeftAsync(this Page page, float seconds)
+        public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, float seconds = 0.3f)
         {
             // Create the storyboard
             var sb = new Storyboard();
 
             // Add slide from right animation
-            sb.AddSlideToLeft(seconds, page.WindowWidth);
+            sb.AddSlideFromLeft(seconds, element.ActualWidth);
+
+            // Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            // Start animating
+            sb.Begin(element);
+
+            // Make page visible
+            element.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Slides an element out to the left
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeOutToLeftAsync(this FrameworkElement element, float seconds = 0.3f)
+        {
+            // Create the storyboard
+            var sb = new Storyboard();
+
+            // Add slide from right animation
+            sb.AddSlideToLeft(seconds, element.ActualWidth);
 
             // Add fade in animation
             sb.AddFadeOut(seconds);
 
             // Start animating
-            sb.Begin(page);
+            sb.Begin(element);
 
             // Make page visible
-            page.Visibility = Visibility.Visible;
+            element.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Slides an element out to the right
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeOutToRightAsync(this FrameworkElement element, float seconds = 0.3f)
+        {
+            // Create the storyboard
+            var sb = new Storyboard();
+
+            // Add slide from right animation
+            sb.AddSlideToRight(seconds, element.ActualWidth);
+
+            // Add fade in animation
+            sb.AddFadeOut(seconds);
+
+            // Start animating
+            sb.Begin(element);
+
+            // Make page visible
+            element.Visibility = Visibility.Visible;
 
             // Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
