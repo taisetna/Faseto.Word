@@ -8,9 +8,9 @@ using System.Windows.Input;
 namespace Fasetto.Word.Core
 {
     /// <summary>
-    /// The View Model for a login screen
+    /// The View Model for a register screen
     /// </summary>
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -22,7 +22,7 @@ namespace Fasetto.Word.Core
         /// <summary>
         /// A flag indicating if the login command is running
         /// </summary>
-        public bool LoginIsRunning { get; set; }
+        public bool RegisterIsRunning { get; set; }
 
         #endregion
 
@@ -45,11 +45,11 @@ namespace Fasetto.Word.Core
         /// <summary>
         /// Default constructor
         /// </summary>
-        public LoginViewModel()
+        public RegisterViewModel()
         {
             // Create commands
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
-            RegisterCommand = new RelayCommand(async () => await RegisterAsync());
+            RegisterCommand = new RelayParameterizedCommand(async (parameter) => await RegisterAsync(parameter));
+            RegisterCommand = new RelayCommand(async () => await LoginAsync());
         }
 
         #endregion
@@ -59,18 +59,11 @@ namespace Fasetto.Word.Core
         /// </summary>
         /// <param name="parameter">The <see cref="SecureString"/> passed in from the view for the users password</param>
         /// <returns></returns>
-        public async Task LoginAsync(object parameter)
+        public async Task RegisterAsync(object parameter)
         {
-            await RunCommandAsync(() => LoginIsRunning, async () =>
+            await RunCommandAsync(() => RegisterIsRunning, async () =>
             {
-                await Task.Delay(1000);
-
-                // Go to chat Page
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
-                //var email = Email;
-
-                // IMPORTANT: Never store unsecure password in variable like this
-                //var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+                await Task.Delay(5000);
             });
         }
 
@@ -78,10 +71,10 @@ namespace Fasetto.Word.Core
         /// Takes the user to the register page
         /// </summary>
         /// <returns></returns>
-        public async Task RegisterAsync()
+        public async Task LoginAsync()
         { 
-            // Go to register page?
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            // Go to login page?
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
 
             await Task.Delay(1);
         }
