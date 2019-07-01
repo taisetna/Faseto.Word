@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +8,7 @@ namespace Fasetto.Word
     /// <summary>
     /// PageHost.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PageHost : Page
+    public partial class PageHost : UserControl
     {
         #region Dependency Properties
 
@@ -39,14 +40,17 @@ namespace Fasetto.Word
 
             newPageFrame.Content = null;
 
+            // Move the previous page into the old page frame
             oldPageFrame.Content = oldPageContent;
 
+            // Animate out previous page when the Loaded event fires
+            // right after this call due to moving frames
             if (oldPageContent is BasePage oldPage)
-            {
-                oldPage.ShouldAnimationOut = true;
-            }
+                oldPage.ShouldAnimateOut = true;
+
+            // Set the new page content
             newPageFrame.Content = e.NewValue;
-        } 
+        }
         #endregion
     }
 }

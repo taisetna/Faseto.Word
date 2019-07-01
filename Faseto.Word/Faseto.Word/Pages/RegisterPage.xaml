@@ -50,8 +50,8 @@
 
                             <!-- Next button -->
                             <Button Content="Register" 
-                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
-                                    Command="{Binding LoginCommand}"
+                                    local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
+                                    Command="{Binding RegisterCommand}"
                                     CommandParameter="{Binding ElementName=Page}" 
                                     HorizontalAlignment="Center" />
 
@@ -59,11 +59,12 @@
 
                     </Border>
 
-                    <Button Content="Register"
-                            local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
-                            Style="{StaticResource TextButton}" 
-                            Content="Or, I already have an account..."
-                            HorizontalAlignment="Center" />
+                    <Button 
+                        Style="{StaticResource TextButton}" 
+                        Content="Or, I already have an account..." 
+                        HorizontalAlignment="Center" 
+                        Command="{Binding LoginCommand}"
+                        />
 
                 </StackPanel>
             </ScrollViewer>

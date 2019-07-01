@@ -72,10 +72,10 @@ namespace Fasetto.Word
         private static object OnValuePropertyUpdated(DependencyObject d, object value)
         {
             // Call the parent function
-             (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, value);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.OnValueUpdated(d, value);
 
             // Call event listeners
-             (Instance as BaseAttachedProperty<Parent, Property>)?.ValueUpdated(d, value);
+            (Instance as BaseAttachedProperty<Parent, Property>)?.ValueUpdated(d, value);
 
             // Return the value
             return value;

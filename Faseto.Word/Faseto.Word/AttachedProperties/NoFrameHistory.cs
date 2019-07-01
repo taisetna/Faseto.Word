@@ -4,14 +4,14 @@ using System.Windows.Controls;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// The NoframHistory attached property for creating a <see cref="Frame"/> that never shows navigation
+    /// The NoFrameHistory attached property for creating a <see cref="Frame"/> that never shows navigation
     /// and keeps the navigation history empty
     /// </summary>
     public class NoFrameHistory : BaseAttachedProperty<NoFrameHistory, bool>
     {
         public override void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            // Get the Name
+            // Get the frame
             var frame = (sender as Frame);
 
             // Hide navigation bar
