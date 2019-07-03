@@ -11,6 +11,7 @@
             <!-- Profile picture-->
             <Border VerticalAlignment="Top"
                     HorizontalAlignment="Left"
+                    Margin="0 7.5 0 7.5"
                     CornerRadius="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Width="35"
@@ -47,12 +48,18 @@
                            />
                 </Border>
 
+                <!--Chat bubble anchor -->
                 <Path Grid.Row="1" 
                       Stroke="Black"
                       Margin="15 0 0 0 "
                       Data="M 0,0 L 10,10 L 20,0 L 0,0"
                       StrokeThickness="0"
                       Fill="{StaticResource ForegroundLightBrush}"/>
+                <TextBlock Grid.Row="2" 
+                           Text="11:54am"
+                           Foreground="{StaticResource ForegroundLightBrush}"
+                           HorizontalAlignment="Right"
+                           FontSize="{StaticResource FontSizeSmall}"/>
             </Grid>
           
         </Grid>
