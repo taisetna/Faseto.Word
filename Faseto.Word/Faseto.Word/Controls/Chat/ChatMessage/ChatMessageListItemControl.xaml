@@ -8,20 +8,53 @@
     <Border Padding="5" Background="{StaticResource WordBlueBrush}">
         <Grid>
             
-            <!-- Speech bubble rectangle -->
-            <Border CornerRadius="10"
+            <!-- Profile picture-->
+            <Border VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    CornerRadius="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                    Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                    Width="35"
+                    Background="Green"
+                    BorderBrush="{StaticResource ForegroundLightBrush}"
+                    BorderThickness="1"
+                    >
+                <TextBlock Text="LM"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource ForegroundLightBrush}"
+                           FontFamily="{StaticResource LatoRegular}"/>
+            </Border>
+            <!-- Chat message container-->
+            <Grid Margin="25 0 0 0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!-- Speech bubble rectangle -->
+                <Border CornerRadius="10"
                     Padding="15"
                     Background="{StaticResource ForegroundLightBrush}"
                     >
-                
-                <!-- Message text-->
-                <TextBlock VerticalAlignment="Center"
+
+                    <!-- Message text-->
+                    <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            FontFamily="{StaticResource LatoRegular}"
                            Foreground="{StaticResource WordDarkBlueBrush}"
                            Text="This chat?"
                            />
-            </Border>
+                </Border>
+
+                <Path Grid.Row="1" 
+                      Stroke="Black"
+                      Margin="15 0 0 0 "
+                      Data="M 0,0 L 10,10 L 20,0 L 0,0"
+                      StrokeThickness="0"
+                      Fill="{StaticResource ForegroundLightBrush}"/>
+            </Grid>
+          
         </Grid>
     </Border>
 </UserControl>
