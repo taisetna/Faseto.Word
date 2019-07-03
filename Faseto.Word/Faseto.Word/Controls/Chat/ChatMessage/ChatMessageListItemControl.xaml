@@ -26,7 +26,7 @@
                            FontFamily="{StaticResource LatoRegular}"/>
             </Border>
             <!-- Chat message container-->
-            <Grid Margin="25 0 0 0">
+            <Grid Margin="25 0 0 0" HorizontalAlignment="Left">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -36,6 +36,7 @@
                 <!-- Speech bubble rectangle -->
                 <Border CornerRadius="10"
                     Padding="15"
+                    HorizontalAlignment="Left"
                     Background="{StaticResource ForegroundLightBrush}"
                     >
 
@@ -44,7 +45,7 @@
                            TextWrapping="Wrap"
                            FontFamily="{StaticResource LatoRegular}"
                            Foreground="{StaticResource WordDarkBlueBrush}"
-                           Text="This chat?"
+                           Text="This chat is awesome. When is it coming out? I want to use it on my PC NOW!!!"
                            />
                 </Border>
 
