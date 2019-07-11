@@ -29,7 +29,7 @@
     <Style TargetType="{x:Type Button}" x:Key="SystemIconButton" BasedOn="{StaticResource Hoverless}">
 
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Margin" Value="10" />
 
     </Style>
 
@@ -112,6 +112,7 @@
 
                             <TextBlock Style="{StaticResource SpinningText}" 
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                   FontSize="{TemplateBinding FontSize}"
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"
                                    />

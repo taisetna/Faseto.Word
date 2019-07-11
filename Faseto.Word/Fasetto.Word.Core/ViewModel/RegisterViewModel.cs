@@ -20,7 +20,7 @@ namespace Fasetto.Word.Core
         public string Email { get; set; }
 
         /// <summary>
-        /// A flag indicating if the login command is running
+        /// A flag indicating if the register command is running
         /// </summary>
         public bool RegisterIsRunning { get; set; }
 
@@ -49,13 +49,13 @@ namespace Fasetto.Word.Core
         {
             // Create commands
             RegisterCommand = new RelayParameterizedCommand(async (parameter) => await RegisterAsync(parameter));
-            RegisterCommand = new RelayCommand(async () => await LoginAsync());
+            LoginCommand = new RelayCommand(async () => await LoginAsync());
         }
 
         #endregion
 
         /// <summary>
-        /// Attempts to log the user in
+        /// Attempts to register a new user
         /// </summary>
         /// <param name="parameter">The <see cref="SecureString"/> passed in from the view for the users password</param>
         /// <returns></returns>
@@ -68,12 +68,12 @@ namespace Fasetto.Word.Core
         }
 
         /// <summary>
-        /// Takes the user to the register page
+        /// Takes the user to the login page
         /// </summary>
         /// <returns></returns>
         public async Task LoginAsync()
-        { 
-            // Go to login page?
+        {
+            // Go to register page?
             IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
 
             await Task.Delay(1);

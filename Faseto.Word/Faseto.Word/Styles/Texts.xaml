@@ -108,7 +108,7 @@
                                    Text="{TemplateBinding Tag}"
                                    x:Name="placeholder"
                                    FontFamily="{StaticResource LatoThin}"
-                                   FontSize="{StaticResource FontSizeXXLarge}"
+                                   FontSize="{TemplateBinding FontSize}"
                                    Padding="{TemplateBinding Padding}"
                                    Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisiblityConverter}}"
                                    VerticalAlignment="Center"
