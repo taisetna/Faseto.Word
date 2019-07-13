@@ -8,9 +8,44 @@
       mc:Ignorable="d" 
       x:Name="Page"
       d:DesignHeight="700" d:DesignWidth="700"
-      Title="Chat">
+      >
 
-    <Border>
-        <local:ChatMessageListControl />
-    </Border>
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <!-- Title bar-->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Chat List -->
+            <RowDefinition Height="*"/>
+            
+            <!-- Message Send Text box -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Title text -->
+            <TextBlock Text="Parnell"
+                       Grid.ColumnSpan="1"
+                       Foreground="{StaticResource ForegroundLightBrush}"
+                       FontSize="{StaticResource FontSizeXLarge}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       />
+
+            <!-- Main buttons -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Button Style="{StaticResource IconButton}" Content="{StaticResource FontAwesomeChatIcon}" />
+                <Button Style="{StaticResource IconButton}" Content="{StaticResource FontAwesomeUserIcon}" />
+                <Button Style="{StaticResource IconButton}" Content="{StaticResource FontAwesomePictureIcon}" />
+            </StackPanel>
+        </Grid>
+
+        <local:ChatMessageListControl Grid.Row="1"/>
+    </Grid>
 </local:BasePage>
