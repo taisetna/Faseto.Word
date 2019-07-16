@@ -82,7 +82,7 @@
                             <DataTrigger Binding="{Binding IsSelected}" Value="True">
                                 <Setter Property="Background" TargetName="background" Value="{StaticResource WordVeryVeryLightBlueBrush}"/>
                             </DataTrigger>
-
+                            
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>

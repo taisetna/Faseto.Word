@@ -46,9 +46,9 @@
                     <!-- The user content -->
                     <Border Background="{StaticResource ForegroundLightBrush}"
                             Grid.Row="1">
-                        <ContentPresenter/>
+                        <ContentPresenter />
                     </Border>
-                   
+
                 </Grid>
 
 
