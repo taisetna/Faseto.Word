@@ -6,13 +6,14 @@ using System.Windows;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// A converter that takes in the core horizontal alignment enum and converts it to a WPF alignment
+    /// A converter that takes in a <see cref="IconType"/> and returns 
+    /// the FontAwesome string for that icon
     /// </summary>
-    public class HorizontalAlignmentConverter : BaseValueConverter<HorizontalAlignmentConverter>
+    public class IconToFontAwesomeConverter : BaseValueConverter<MenuItemTypeVisiblityConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (HorizontalAlignment)value;
+            return ((IconType)value).ToFontAwesome();
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

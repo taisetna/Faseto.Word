@@ -126,7 +126,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-           <!-- Blue background image -->
+            <!-- Blue background image -->
             <Grid.Background>
                 <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="/Images/Backgrounds/emoji-background.png" />
             </Grid.Background>
@@ -144,9 +144,10 @@
                 local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible, 
                                      Source={x:Static local:ViewModelLocator.Instance}}">
 
-                <local:ChatListControl Margin="2,0,-2,0" />
+                <local:ChatListControl />
 
             </local:SideMenuControl>
+
         </Grid>
       
     </Border>

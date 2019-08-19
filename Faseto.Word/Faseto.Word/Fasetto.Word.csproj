@@ -113,6 +113,9 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\IconToFontAwesomeConverter.cs" />
+    <Compile Include="ValueConverters\MenuItemTypeVisiblityConverter.cs" />
+    <Compile Include="ValueConverters\PopupContentConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
