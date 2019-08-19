@@ -13,28 +13,29 @@
     <Grid>
 
         <Grid.RowDefinitions>
-
+            
             <!-- Title bar -->
             <RowDefinition Height="Auto" />
-
+            
             <!-- Chat List -->
-            <RowDefinition Height="597*" />
-
+            <RowDefinition Height="*" />
+            
             <!-- Message Send Text box -->
-            <RowDefinition Height="53*" />
-
+            <RowDefinition Height="Auto" />
+            
         </Grid.RowDefinitions>
 
         <!-- Popup Overlay -->
         <Border Background="Transparent" 
                 Grid.RowSpan="2"
                 Panel.ZIndex="1"
-                Visibility="{Binding AnyPopupVisible, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=true}">
-
+                Visibility="{Binding AnyPopupVisible, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"
+                >
             <Border.InputBindings>
-                <MouseBinding MouseAction="LeftClick" Command="{Binding PopupClickAwayCommand}"/>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding PopupClickawayCommand}" />
             </Border.InputBindings>
         </Border>
+
         <!-- Title bar -->
         <Grid Height="50">
 
@@ -61,18 +62,20 @@
             </StackPanel>
 
         </Grid>
-
+        
         <!-- Chat List -->
         <local:ChatMessageListControl Grid.Row="1" />
-
+        
         <!-- Attachment Menu Popup -->
-        <local:BubbleContent
+        <local:BubbleContent 
             Grid.Row="1"
+            Panel.ZIndex="2"
             DataContext="{Binding AttachmentMenu}"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Left"
             local:AnimateSlideInFromBottomProperty.Value="{Binding ViewModel.AttachmentMenuVisible, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ChatPage}}}"
             />
+
         <!-- Message Send Text box -->
         <Grid Grid.Row="2" 
               Panel.ZIndex="3"
@@ -84,10 +87,10 @@
             <Grid.ColumnDefinitions>
                 <!-- Attach button -->
                 <ColumnDefinition Width="Auto" />
-
+                
                 <!-- Text entry box -->
                 <ColumnDefinition Width="*" />
-
+                
                 <!-- Additional buttons -->
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
@@ -126,7 +129,7 @@
                     Content="{StaticResource FontAwesomeEmojiIcon}"
                     Foreground="{StaticResource WordOrangeBrush}"
                     />
-
+                
                 <!-- Send button -->
                 <Button Content="Send"
                         Padding="8"
@@ -137,6 +140,6 @@
             </StackPanel>
 
         </Grid>
-
+        
     </Grid>
 </local:BasePage>

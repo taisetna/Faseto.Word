@@ -19,9 +19,7 @@ namespace Fasetto.Word
 
             // Try and convert parameter string to enum
             if (!Enum.TryParse(parameter as string, out MenuItemType type))
-            {
                 return Visibility.Collapsed;
-            }
 
             // Return visible if the parameter matches the type
             return (MenuItemType)value == type ? Visibility.Visible : Visibility.Collapsed;
