@@ -17,7 +17,7 @@ namespace Fasetto.Word
             switch((string)parameter)
             {
                 case nameof(ApplicationViewModel):
-                    return IoC.Get<ApplicationViewModel>();
+                    return IoC.Application;
                 default:
                     Debugger.Break();
                     return null;
