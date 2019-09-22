@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// SettingsControl.xaml에 대한 상호 작용 논리
+    /// Interaction logic for SettingsControl.xaml
     /// </summary>
     public partial class SettingsControl : UserControl
     {
@@ -12,7 +12,7 @@ namespace Fasetto.Word
         {
             InitializeComponent();
 
-            // Set data context to settings vie model
+            // Set data context to settings view model
             DataContext = IoC.Settings;
         }
     }

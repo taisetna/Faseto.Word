@@ -6,40 +6,45 @@
              xmlns:local="clr-namespace:Fasetto.Word"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border Background="{StaticResource ForegroundLightBrush}"
-            Padding="20">
+    <Border Background="{StaticResource ForegroundLightBrush}" 
+            Padding="15">
         <Grid>
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+
             <!-- Settings Title -->
             <Grid Height="40" Margin="0 0 0 20">
 
                 <!-- Back button -->
                 <Button Style="{StaticResource IconGrowButton}"
-                        Height="40"
-                        Content="{StaticResource FontAwesomeLeftArrowIcon}"
-                        FontFamily="{StaticResource FontAwesome}"
-                        Foreground="{StaticResource ForegroundDarkBrush}"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Command="{Binding CloseCommand}"
-                        />
+                    Height="40"
+                    Content="{StaticResource FontAwesomeArrowLeftIcon}"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Foreground="{StaticResource ForegroundDarkBrush}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding CloseCommand}"
+                    />
+
+                <!-- Settings header -->
                 <TextBlock FontSize="{StaticResource FontSizeLarge}"
                        Foreground="{StaticResource ForegroundVeryDarkBrush}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                <!-- Cog icon-->
+                <!-- Cog icon -->
                 <Run FontFamily="{StaticResource FontAwesome}"
                      Text="{StaticResource FontAwesomeCogIcon}"
-                     Foreground="{StaticResource WordOrangeBrush}"/>
-                <!-- Setting Text-->
+                     Foreground="{StaticResource WordOrangeBrush}" />
+                <!-- Settings text -->
                 <Run Text="Settings"
-                     FontFamily="{StaticResource LatoRegular}"/>
-
+                     FontFamily="{StaticResource LatoRegular}" />
                 </TextBlock>
+
             </Grid>
+
             <!-- Main Content -->
 
         </Grid>

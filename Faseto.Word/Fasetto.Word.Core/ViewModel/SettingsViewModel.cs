@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Fasetto.Word.Core
@@ -8,7 +12,7 @@ namespace Fasetto.Word.Core
     /// </summary>
     public class SettingsViewModel : BaseViewModel
     {
-        #region Public Command
+        #region Public Commands
 
         /// <summary>
         /// The command to open the settings menu
@@ -35,23 +39,24 @@ namespace Fasetto.Word.Core
         }
 
         #endregion
-                
+
         /// <summary>
         /// Open the settings menu
         /// </summary>
-        private void Open()
+        public void Open()
         {
-            IoC.Application.SideMenuVisible = true;
+            // Close settings menu
+            IoC.Application.SettingsMenuVisible = true;
         }
 
         /// <summary>
         /// Closes the settings menu
         /// </summary>
-        private void Close()
+        public void Close()
         {
-            IoC.Application.SideMenuVisible = false;
+            // Close settings menu
+            IoC.Application.SettingsMenuVisible = false;
         }
-
 
     }
 }

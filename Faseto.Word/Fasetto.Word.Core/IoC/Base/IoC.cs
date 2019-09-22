@@ -26,9 +26,10 @@ namespace Fasetto.Word.Core
         public static ApplicationViewModel Application => IoC.Get<ApplicationViewModel>();
 
         /// <summary>
-        /// A shortcut to access the <see cref="ApplicationViewModel"/>
+        /// A shortcut to access the <see cref="SettingsViewModel"/>
         /// </summary>
         public static SettingsViewModel Settings => IoC.Get<SettingsViewModel>();
+
         #endregion
 
         #region Construction

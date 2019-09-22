@@ -23,7 +23,7 @@ namespace Fasetto.Word
             // Let the base application do what it needs
             base.OnStartup(e);
 
-            // Setup the main application
+            // Setup the main application 
             ApplicationSetup();
 
             // Show the main window
@@ -32,11 +32,11 @@ namespace Fasetto.Word
         }
 
         /// <summary>
-        /// Configures out application ready for use
+        /// Configures our application ready for use
         /// </summary>
         private void ApplicationSetup()
         {
-            //Setup IoC
+            // Setup IoC
             IoC.Setup();
 
             // Bind a UI Manager
