@@ -19,10 +19,8 @@ namespace Fasetto.Word
             {
                 // Loop each child
                 foreach (var child in panel.Children)
-                {
                     // Set it's margin to the given value
                     (child as FrameworkElement).Margin = (Thickness)(new ThicknessConverter().ConvertFromString(e.NewValue as string));
-                }
             };
         }
     }
