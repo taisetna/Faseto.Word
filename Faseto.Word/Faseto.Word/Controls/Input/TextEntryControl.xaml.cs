@@ -3,7 +3,7 @@
 namespace Fasetto.Word
 {
     /// <summary>
-    /// TextEntryControl.xaml에 대한 상호 작용 논리
+    /// Interaction logic for TextEntryControl.xaml
     /// </summary>
     public partial class TextEntryControl : UserControl
     {

@@ -21,7 +21,7 @@ namespace Fasetto.Word
     }
 
     /// <summary>
-    /// Focuses (keyboard focus) this element on load
+    /// Focuses (keyboard focus) this element if true
     /// </summary>
     public class FocusProperty : BaseAttachedProperty<FocusProperty, bool>
     {
@@ -31,14 +31,15 @@ namespace Fasetto.Word
             if (!(sender is Control control))
                 return;
 
-            // Focus this control once loaded
             if ((bool)e.NewValue)
+                // Focus this control
                 control.Focus();
         }
     }
 
+
     /// <summary>
-    /// Focuses (keyboard focus) this element on load
+    /// Focuses (keyboard focus) and selects all text in this element if true
     /// </summary>
     public class FocusAndSelectProperty : BaseAttachedProperty<FocusAndSelectProperty, bool>
     {
@@ -48,11 +49,12 @@ namespace Fasetto.Word
             if (!(sender is TextBoxBase control))
                 return;
 
-            // Focus this control once loaded
             if ((bool)e.NewValue)
             {
+                // Focus this control
                 control.Focus();
 
+                // Select all text
                 control.SelectAll();
             }
         }
