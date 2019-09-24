@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// The IsBusy attached property for a anything that wants to flag if the control is busy
+    /// Focuses (keyboard focus) this element on load
     /// </summary>
     public class IsFocusedProperty : BaseAttachedProperty<IsFocusedProperty, bool>
     {
@@ -14,8 +14,8 @@ namespace Fasetto.Word
             if (!(sender is Control control))
                 return;
 
+            // Focus this control once loaded
             control.Loaded += (s, se) => control.Focus();
-
         }
     }
 }
