@@ -14,18 +14,19 @@ namespace Fasetto.Word
             // Get the panel (grid typically)
             var panel = (sender as Panel);
 
-            // Call SetWidth initially (this also helps design time to work)
+            // Call SetWidths initially (this also helps design time to work)
             SetWidths(panel);
 
             // Wait for panel to load
             RoutedEventHandler onLoaded = null;
-            onLoaded += (s, ee) =>
+            onLoaded = (s, ee) =>
             {
                 // Unhook
                 panel.Loaded -= onLoaded;
 
                 // Set widths
                 SetWidths(panel);
+
                 // Loop each child
                 foreach (var child in panel.Children)
                 {
@@ -40,7 +41,6 @@ namespace Fasetto.Word
                         SetWidths(panel);
                     };
                 }
-                
             };
 
             // Hook into the Loaded event
@@ -50,27 +50,26 @@ namespace Fasetto.Word
         /// <summary>
         /// Update all child text entry controls so their widths match the largest width of the group
         /// </summary>
-        /// <param name="panel">The panel containing the text enry controls</param>
+        /// <param name="panel">The panel containing the text entry controls</param>
         private void SetWidths(Panel panel)
         {
-            // Kepp track of the maximum width
+            // Keep track of the maximum width
             var maxSize = 0d;
 
             // For each child...
-            foreach(var child in panel.Children)
+            foreach (var child in panel.Children)
             {
                 // Ignore any non-text entry controls
                 if (!(child is TextEntryControl control))
                     continue;
 
-                control.LabelWidth = GridLength.Auto;
-
                 // Find if this value is larger than the other controls
-                maxSize = Math.Max(maxSize, control.Label.RenderSize.Width + control.Label.Margin.Right);
+                maxSize = Math.Max(maxSize, control.Label.RenderSize.Width + control.Label.Margin.Left + control.Label.Margin.Right);
             }
 
             // Create a grid length converter
-            var gridLength = (GridLength)new GridLengthConverter().ConvertFrom(maxSize.ToString());
+            var gridLength = (GridLength)new GridLengthConverter().ConvertFromString(maxSize.ToString());
+
             // For each child...
             foreach (var child in panel.Children)
             {
@@ -80,8 +79,8 @@ namespace Fasetto.Word
 
                 // Set each controls LabelWidth value to the max size
                 control.LabelWidth = gridLength;
-
             }
+
         }
     }
 }

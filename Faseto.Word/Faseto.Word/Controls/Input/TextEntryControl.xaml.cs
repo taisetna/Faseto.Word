@@ -12,6 +12,9 @@ namespace Fasetto.Word
     {
         #region Dependency Properties
 
+        /// <summary>
+        /// The label width of the control
+        /// </summary>
         public GridLength LabelWidth
         {
             get => (GridLength)GetValue(LabelWidthProperty);
@@ -33,9 +36,11 @@ namespace Fasetto.Word
         {
             InitializeComponent();
         }
+
         #endregion
 
         #region Dependency Callbacks
+
         /// <summary>
         /// Called when the label width has changed
         /// </summary>
@@ -45,10 +50,12 @@ namespace Fasetto.Word
         {
             try
             {
+                // Set the column definition width to the new value
                 (d as TextEntryControl).LabelColumnDefinition.Width = (GridLength)e.NewValue;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                // Make developer aware of potential issue
                 Debugger.Break();
 
                 (d as TextEntryControl).LabelColumnDefinition.Width = GridLength.Auto;
