@@ -14,9 +14,11 @@
 
         <Grid Background="{StaticResource ForegroundLightBrush}">
 
+            <!-- Double click to edit -->
             <Grid.InputBindings>
-                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditCommand}"/>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditCommand}" />
             </Grid.InputBindings>
+            
             <!-- Hover over to show edit button -->
             <Grid.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
@@ -52,6 +54,7 @@
             <TextBlock Text="{Binding Label}"
                        Name="Label"
                        Margin="15 12"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontFamily="{StaticResource LatoRegular}"
                        />
@@ -97,6 +100,7 @@
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         >
+
                 <!-- Save Button -->
                 <Button Content="{StaticResource FontAwesomeTickIcon}"
                         FontFamily="{StaticResource FontAwesome}"
