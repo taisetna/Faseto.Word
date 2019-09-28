@@ -76,7 +76,7 @@ namespace Fasetto.Word
             if (DataContext is PasswordEntryViewModel viewModel)
                 viewModel.CurrentPassword = CurrentPassword.SecurePassword;
         }
-     
+
         /// <summary>
         /// Update the view model value with the new password
         /// </summary>

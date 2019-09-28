@@ -4,7 +4,7 @@ using System.Windows.Input;
 namespace Fasetto.Word.Core
 {
     /// <summary>
-    /// The view model for a text entry to edit a string value
+    /// The view model for a password entry to edit a password 
     /// <summary>
     public class PasswordEntryViewModel : BaseViewModel
     {
@@ -14,7 +14,7 @@ namespace Fasetto.Word.Core
         /// The label to identify what this value is for
         /// </summary>
         public string Label { get; set; }
-        
+
         /// <summary>
         /// The fake password display string
         /// </summary>
@@ -175,12 +175,7 @@ namespace Fasetto.Word.Core
             CurrentPassword = new SecureString();
             foreach (var c in NewPassword.Unsecure().ToCharArray())
                 CurrentPassword.AppendChar(c);
-
-            // Let's see what we got
-            var actualCurrentPassword = CurrentPassword.Unsecure();
-            var actualNewPassword     = NewPassword.Unsecure();
-            var actualConfirmPassword = ConfirmPassword.Unsecure();
-
+            
             Editing = false;
         }
 

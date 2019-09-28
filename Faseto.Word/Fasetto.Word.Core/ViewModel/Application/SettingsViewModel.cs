@@ -59,7 +59,7 @@ namespace Fasetto.Word.Core
         public ICommand LogoutCommand { get; set; }
 
         /// <summary>
-        /// The command to logout of the application
+        /// The command to clear the users data from the view model
         /// </summary>
         public ICommand ClearUserDataCommand { get; set; }
 
@@ -78,10 +78,16 @@ namespace Fasetto.Word.Core
             LogoutCommand = new RelayCommand(Logout);
             ClearUserDataCommand = new RelayCommand(ClearUserData);
 
+            // TODO: Remove this once th real back-end is ready
+            Name = new TextEntryViewModel { Label = "Name", OriginalText = $"Luke Malpass" };
+            Username = new TextEntryViewModel { Label = "Username", OriginalText = "luke" };
+            Password = new PasswordEntryViewModel { Label = "Password", FakePassword = "********" };
+            Email = new TextEntryViewModel { Label = "Email", OriginalText = "contact@angelsix.com" };
+
             // TODO: Get from localization
             LogoutButtonText = "Logout";
         }
-                
+
         #endregion
 
         /// <summary>
@@ -103,7 +109,7 @@ namespace Fasetto.Word.Core
         }
 
         /// <summary>
-        /// Logout the user out
+        /// Logs the user out
         /// </summary>
         public void Logout()
         {
@@ -111,24 +117,24 @@ namespace Fasetto.Word.Core
 
             // TODO: Clear any user data/cache
 
-            // Clean all application level view models that contain 
+            // Clean all application level view models that contain
             // any information about the current user
             ClearUserData();
 
-            // Close settings menu
+            // Go to login page
             IoC.Application.GoToPage(ApplicationPage.Login);
         }
 
         /// <summary>
-        /// 
+        /// Clears any data specific to the current user
         /// </summary>
         public void ClearUserData()
         {
+            // Clear all view models containing the users info
             Name = null;
             Username = null;
             Password = null;
             Email = null;
-
         }
     }
 }
