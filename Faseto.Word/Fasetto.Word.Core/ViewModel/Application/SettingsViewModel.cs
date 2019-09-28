@@ -27,12 +27,17 @@ namespace Fasetto.Word.Core
         /// <summary>
         /// The current users password
         /// </summary>
-        public TextEntryViewModel Password { get; set; }
+        public PasswordEntryViewModel Password { get; set; }
 
         /// <summary>
         /// The current users email
         /// </summary>
         public TextEntryViewModel Email { get; set; }
+
+        /// <summary>
+        /// The text for the logout button
+        /// </summary>
+        public string LogoutButtonText { get; set; }
 
         #endregion
 
@@ -48,6 +53,16 @@ namespace Fasetto.Word.Core
         /// </summary>
         public ICommand CloseCommand { get; set; }
 
+        /// <summary>
+        /// The command to logout of the application
+        /// </summary>
+        public ICommand LogoutCommand { get; set; }
+
+        /// <summary>
+        /// The command to logout of the application
+        /// </summary>
+        public ICommand ClearUserDataCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -60,14 +75,13 @@ namespace Fasetto.Word.Core
             // Create commands
             OpenCommand = new RelayCommand(Open);
             CloseCommand = new RelayCommand(Close);
+            LogoutCommand = new RelayCommand(Logout);
+            ClearUserDataCommand = new RelayCommand(ClearUserData);
 
-            // TODO: Remove this with real information pulled from our database in future
-            Name = new TextEntryViewModel { Label = "Name", OriginalText = "Luke Malpass" };
-            Username = new TextEntryViewModel { Label = "Username", OriginalText = "luke" };
-            Password = new TextEntryViewModel { Label = "Password", OriginalText = "********" };
-            Email = new TextEntryViewModel { Label = "Email   ", OriginalText = "contact@angelsix.com" };
+            // TODO: Get from localization
+            LogoutButtonText = "Logout";
         }
-
+                
         #endregion
 
         /// <summary>
@@ -88,5 +102,33 @@ namespace Fasetto.Word.Core
             IoC.Application.SettingsMenuVisible = false;
         }
 
+        /// <summary>
+        /// Logout the user out
+        /// </summary>
+        public void Logout()
+        {
+            // TODO: Confirm the user wants to logout
+
+            // TODO: Clear any user data/cache
+
+            // Clean all application level view models that contain 
+            // any information about the current user
+            ClearUserData();
+
+            // Close settings menu
+            IoC.Application.GoToPage(ApplicationPage.Login);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ClearUserData()
+        {
+            Name = null;
+            Username = null;
+            Password = null;
+            Email = null;
+
+        }
     }
 }

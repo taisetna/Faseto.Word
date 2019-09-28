@@ -63,7 +63,12 @@ namespace Fasetto.Word.Core
         {
             await RunCommandAsync(() => LoginIsRunning, async () =>
             {
+                // TODO: Fake a login....
                 await Task.Delay(1000);
+                               
+                // Ok successfully looged in...now get user
+
+                // TODO:               
 
                 // Go to chat page
                 IoC.Application.GoToPage(ApplicationPage.Chat);
