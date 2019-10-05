@@ -122,8 +122,8 @@ namespace Fasetto.Word
     }
 
     /// <summary>
-    /// Animates a framework element sliding up from the bottom on show
-    /// and sliding out to the bottom on hide
+    /// Animates a framework element sliding up from the bottom on load
+    /// if the value is true
     /// </summary>
     public class AnimateSlideInFromBottomOnLoadProperty : AnimateBaseProperty<AnimateSlideInFromBottomOnLoadProperty>
     {

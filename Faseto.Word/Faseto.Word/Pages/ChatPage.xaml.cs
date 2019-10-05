@@ -66,9 +66,14 @@ namespace Fasetto.Word
 
         #endregion
 
+        /// <summary>
+        /// Preview the input into the message box and respond as required
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MessageText_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            // Get the text box 
+            // Get the text box
             var textbox = sender as TextBox;
 
             // Check if we have pressed enter
@@ -83,10 +88,10 @@ namespace Fasetto.Word
                     // Insert the new line
                     textbox.Text = textbox.Text.Insert(index, Environment.NewLine);
 
-                    // Shit the caret forward to the newline
+                    // Shift the caret forward to the newline
                     textbox.CaretIndex = index + Environment.NewLine.Length;
-                      
-                    // Make this key as handled by us
+
+                    // Mark this key as handled by us
                     e.Handled = true;
                 }
                 else

@@ -33,7 +33,7 @@ namespace Fasetto.Word
     }
 
     /// <summary>
-    /// Scroll an items control to the bottom when the data context changes
+    /// Automatically keep the scroll at the bottom of the screen when we are already close to the bottom
     /// </summary>
     public class AutoScrollToBottomProperty : BaseAttachedProperty<AutoScrollToBottomProperty, bool>
     {
@@ -55,9 +55,9 @@ namespace Fasetto.Word
         private void Control_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             var scroll = sender as ScrollViewer;
-            
-            // If we are close enough to the bottom..
-            if (scroll.ScrollableHeight - scroll.VerticalOffset < 10)
+
+            // If we are close enough to the bottom...
+            if (scroll.ScrollableHeight - scroll.VerticalOffset < 20)
                 // Scroll to the bottom
                 scroll.ScrollToEnd();
         }

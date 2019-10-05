@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       x:Name="Page"
       d:DesignHeight="700" d:DesignWidth="700"
-                d:DataContext="{x:Static core:ChatMessageListDesignModel.Instance}"
+      d:DataContext="{x:Static core:ChatMessageListDesignModel.Instance}"
       >
 
     <Grid>
@@ -125,7 +125,7 @@
                     />
 
             <!-- Message box -->
-            <TextBox x:Name="MessageText" 
+            <TextBox x:Name="MessageText"    
                      Grid.Column="1" 
                      Tag="Write a message..."
                      local:IsFocusedProperty.Value="True"

@@ -53,6 +53,26 @@ namespace Fasetto.Word.Core
         /// </summary>
         public DateTimeOffset MessageSentTime { get; set; }
 
+        /// <summary>
+        /// A flag indicating if this item was added since the first main list of items was created
+        /// Used as a flag for animating in
+        /// </summary>
         public bool NewItem { get; set; }
+
+        /// <summary>
+        /// The attachment to the message, if it is of an image type
+        /// </summary>
+        public ChatMessageListItemImageAttachmentViewModel ImageAttachment { get; set; }
+
+        /// <summary>
+        /// A flag indicating if we have any message text or not
+        /// </summary>
+        public bool HasMessage => Message != null;
+
+        /// <summary>
+        /// A flag indicating if we have an image attached to this message
+        /// </summary>
+        public bool HasImageAttachment => ImageAttachment != null;
     }
 }
+
