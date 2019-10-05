@@ -52,5 +52,7 @@ namespace Fasetto.Word.Core
         /// The time the message was sent
         /// </summary>
         public DateTimeOffset MessageSentTime { get; set; }
+
+        public bool NewItem { get; set; }
     }
 }
