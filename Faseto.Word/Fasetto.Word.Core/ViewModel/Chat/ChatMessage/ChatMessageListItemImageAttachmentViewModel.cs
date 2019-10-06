@@ -52,7 +52,7 @@ namespace Fasetto.Word.Core
                 //       Save file to local storage/cache
                 //       Set LocalFilePath value
                 //
-                //       For now, just set the file path directly                ;
+                //       For now, just set the file path directly
                 Task.Delay(2000).ContinueWith(t => LocalFilePath = "/Images/Samples/rusty.jpg");
             }
         }

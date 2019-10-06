@@ -75,4 +75,3 @@ namespace Fasetto.Word.Core
         public bool HasImageAttachment => ImageAttachment != null;
     }
 }
-
