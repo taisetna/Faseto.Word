@@ -7,7 +7,7 @@ using System.Windows.Media;
 namespace Fasetto.Word
 {
     /// <summary>
-    /// The NoFrameHistory attached property for creating a <see cref="Frame"/> that never shows navigation
+    /// Creates a clipping region from the parent <see cref="Border"/> <see cref="CornerRadius"/>
     /// </summary>
     public class ClipFromBorderProperty : BaseAttachedProperty<ClipFromBorderProperty, bool>
     {
