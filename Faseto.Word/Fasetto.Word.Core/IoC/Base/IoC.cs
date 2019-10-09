@@ -20,9 +20,10 @@ namespace Fasetto.Word.Core
         /// </summary>
         public static IUIManager UI => IoC.Get<IUIManager>();
 
-
+        /// <summary>
+        /// A shortcut to access the <see cref="ILogFactory"/>
+        /// </summary>
         public static ILogFactory Logger => IoC.Get<ILogFactory>();
-
 
         /// <summary>
         /// A shortcut to access the <see cref="ApplicationViewModel"/>
