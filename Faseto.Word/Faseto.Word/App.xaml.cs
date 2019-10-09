@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,8 +27,8 @@ namespace Fasetto.Word
             // Setup the main application 
             ApplicationSetup();
 
-            // Log it 
-            IoC.Logger.Log("Application starting up....");
+            // Log it
+            IoC.Logger.Log("Application starting...", LogLevel.Debug);
 
             // Show the main window
             Current.MainWindow = new MainWindow();
