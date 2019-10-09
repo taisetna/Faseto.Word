@@ -54,10 +54,15 @@ namespace Fasetto.Word.Core
         /// <summary>
         /// Default constructor
         /// </summary>
-        public BaseLogFactory()
+        public BaseLogFactory(ILogger[] loggers = null)
         {
             // Add console logger
             AddLogger(new DebugLogger());
+
+            // Add any others passed in
+            if (loggers != null)
+                foreach (var logger in loggers)
+                    AddLogger(logger);
         }
 
         #endregion
