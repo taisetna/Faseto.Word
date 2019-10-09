@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Faseto.Word.Properties {
+namespace Fasetto.Word.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

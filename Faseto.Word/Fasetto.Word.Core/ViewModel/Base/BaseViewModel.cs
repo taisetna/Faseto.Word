@@ -24,7 +24,7 @@ namespace Fasetto.Word.Core
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
-
+         
         #region Command Helpers
 
         /// <summary>
