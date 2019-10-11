@@ -6,27 +6,53 @@ using System.IO;
 
 namespace Dna
 {
+    /// <summary>
+    /// The main entry point into the Dna Framework library
+    /// </summary>
     public static class Framework
     {
-        #region Private Memebers
-       
+        #region Private Members
+
+        /// <summary>
+        /// The dependency injection service provider
+        /// </summary>
         private static IServiceProvider ServiceProvider;
-         
+
         #endregion
 
         #region Public Properties
 
+        /// <summary>
+        /// The dependency injection service provider
+        /// </summary>
         public static IServiceProvider Provider => ServiceProvider;
 
+        /// <summary>
+        /// Gets the configuration for the framework environment
+        /// </summary>
         public static IConfiguration Configuration => Provider.GetService<IConfiguration>();
 
+        /// <summary>
+        /// Gets the default logger for the framework
+        /// </summary>
         public static ILogger Logger => Provider.GetService<ILogger>();
 
+        /// <summary>
+        /// Gets the framework environment of this class
+        /// </summary>
         public static FrameworkEnvironment Environment => Provider.GetService<FrameworkEnvironment>();
 
         #endregion
 
-        public static void StartUp(Action<IConfigurationBuilder> configure = null , Action<IServiceCollection, IConfiguration> injection = null)
+        #region Public Methods
+
+        /// <summary>
+        /// Should be called at the very start of your application to configure and setup 
+        /// the Dna Framework
+        /// </summary>
+        /// <param name="configure">The action to add custom configurations to the configuration builder</param>
+        /// <param name="injection">The action to inject services into the service collection</param>
+        public static void Startup(Action<IConfigurationBuilder> configure = null, Action<IServiceCollection, IConfiguration> injection = null)
         {
             #region Initialize
 
@@ -47,7 +73,7 @@ namespace Dna
 
             #region Configuration
 
-            // Create configuration sources
+            // Create our configuration sources
             var configurationBuilder = new ConfigurationBuilder()
                 // Add environment variables
                 .AddEnvironmentVariables()
@@ -82,7 +108,6 @@ namespace Dna
 
                 // Add file logger
                 options.AddFile("log.txt");
-                //options.AddFile("log2.txt");
             });
 
             // Add default logger
@@ -90,7 +115,7 @@ namespace Dna
 
             #endregion
 
-            #region Custom Services and Building 
+            #region Custom Services and Building
 
             // Allow custom service injection
             injection?.Invoke(services, configuration);
@@ -100,10 +125,10 @@ namespace Dna
 
             #endregion
 
-            // Log the start complete
+            // Log the startup complete
             Logger.LogCriticalSource($"Dna Framework started in {environment.Configuration}...");
         }
-    }
 
-    public class Test { }
+        #endregion
+    }
 }

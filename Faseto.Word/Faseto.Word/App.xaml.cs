@@ -42,7 +42,7 @@ namespace Fasetto.Word
         private void ApplicationSetup()
         {
             // Setup the Dna Framework
-            Framework.StartUp();
+            Framework.Startup();
 
             // Setup IoC
             IoC.Setup();
