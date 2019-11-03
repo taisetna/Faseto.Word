@@ -68,16 +68,5 @@ namespace Dna
         }
 
         #endregion
-        #region Constructor
-
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        public FileLoggerProvider()
-        {
-
-        }
-
-        #endregion
     }
 }

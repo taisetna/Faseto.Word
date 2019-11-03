@@ -3,27 +3,19 @@
 namespace Dna
 {
     /// <summary>
-    /// 
+    /// Handles all exceptions, simply logging them to the logger
     /// </summary>
     public class BaseExceptionHandler : IExceptionHandler
     {
-        public void HandlerError(Exception exception)
-        {
-            // Log it 
-            // TODO: Localization of strings 
-            Framework.Logger.LogCriticalSource("Unhandled exception occurred.", exception: exception); 
-        }
-
-        #region Constructor
-
         /// <summary>
-        /// Default Constructor
+        /// Logs the given exception
         /// </summary>
-        public BaseExceptionHandler()
+        /// <param name="exception">The exception</param>
+        public void HandleError(Exception exception)
         {
-
+            // Log it
+            // TODO: Localization of strings
+            Framework.Logger.LogCriticalSource("Unhandled exception occurred", exception: exception);
         }
-
-        #endregion
     }
 }

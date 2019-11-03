@@ -33,7 +33,7 @@ namespace Dna
         public static IConfiguration Configuration => Provider.GetService<IConfiguration>();
 
         /// <summary>
-        /// Gets the default logger 
+        /// Gets the default logger
         /// </summary>
         public static ILogger Logger => Provider.GetService<ILogger>();
 
@@ -42,23 +42,25 @@ namespace Dna
         /// </summary>
         public static FrameworkEnvironment Environment => Provider.GetService<FrameworkEnvironment>();
 
+        /// <summary>
+        /// Gets the framework exception handler
+        /// </summary>
         public static IExceptionHandler ExceptionHandler => Provider.GetService<IExceptionHandler>();
 
         #endregion
 
         #region Public Methods
-        
+
         /// <summary>
-        /// Should be called once a Framework Construction is finished and we want to build it and 
-        /// Start our application
-        /// the Dna Framework
+        /// Should be called once a Framework Construction is finished and we want to build it and
+        /// start our application
         /// </summary>
-        /// <param name="construction">Construction</param>
+        /// <param name="construction">The construction</param>
         public static void Build(this FrameworkConstruction construction)
         {
-            //Build the service provider
+            // Build the service provider
             ServiceProvider = construction.Services.BuildServiceProvider();
-              
+
             // Log the startup complete
             Logger.LogCriticalSource($"Dna Framework started in {Environment.Configuration}...");
         }

@@ -11,12 +11,16 @@ namespace Dna
     /// </summary>
     public static class FrameworkExtensions
     {
-        #region Configuration     
+        #region Configuration
 
+        /// <summary>
+        /// Configures a framework construction
+        /// </summary>
+        /// <param name="construction">The construction to configure</param>
+        /// <param name="configure">The custom configuration action</param>
+        /// <returns></returns>
         public static FrameworkConstruction Configure(this FrameworkConstruction construction, Action<IConfigurationBuilder> configure = null)
         {
-        
-
             // Create our configuration sources
             var configurationBuilder = new ConfigurationBuilder()
                 // Add environment variables
@@ -24,10 +28,10 @@ namespace Dna
                 // Set base path for Json files as the startup location of the application
                 .SetBasePath(Directory.GetCurrentDirectory())
                 // Add application settings json files
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{construction.Enviroment.Configuration}.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{construction.Environment.Configuration}.json", optional: true, reloadOnChange: true);
 
-            // Let custom configuration sources happen
+            // Let custom configuration happen
             configure?.Invoke(configurationBuilder);
 
             // Inject configuration into services
@@ -35,7 +39,7 @@ namespace Dna
             construction.Services.AddSingleton<IConfiguration>(configuration);
 
             // Set the construction Configuration
-            construction.Configuration = configuration;                       
+            construction.Configuration = configuration;
 
             // Chain the construction
             return construction;
@@ -44,46 +48,60 @@ namespace Dna
         #endregion
 
         /// <summary>
-        /// Injects the default logger into the framework constrction
+        /// Injects all of the default services used by Dna.Framework for a quicker and cleaner setup
         /// </summary>
-        /// <param name="construction"></param>
+        /// <param name="construction">The construction</param>
+        /// <returns></returns>
+        public static FrameworkConstruction UseDefaultServices(this FrameworkConstruction construction)
+        {
+            // Add exception handler
+            construction.AddDefaultExceptionHandler();
+
+            // Add default logger
+            construction.AddDefaultLogger();
+
+            // Chain the construction
+            return construction;
+        }
+
+        /// <summary>
+        /// Injects the default logger into the framework construction
+        /// </summary>
+        /// <param name="construction">The construction</param>
         /// <returns></returns>
         public static FrameworkConstruction AddDefaultLogger(this FrameworkConstruction construction)
-        {          
-            // Add a default logger so that we can get a non-generic ILogger
+        {
+            // Add logging as default
+            construction.Services.AddLogging(options =>
+            {
+                // Setup loggers from configuration
+                options.AddConfiguration(construction.Configuration.GetSection("Logging"));
+
+                // Add console logger
+                options.AddConsole();
+
+                // Add debug logger
+                options.AddDebug();
+            });
+
+            // Adds a default logger so that we can get a non-generic ILogger
+            // that will have the category name of "Dna"
             construction.Services.AddTransient(provider => provider.GetService<ILoggerFactory>().CreateLogger("Dna"));
 
             // Chain the construction
             return construction;
         }
 
-        public static FrameworkConstruction UseDefaultServices(this FrameworkConstruction construction)
-        {
-            // Add exception handler
-            construction.AddDefaultExceptionHandler();
-
-            // Add default logging
-            construction.AddDefaultLogger();                       
-
-            #region Custom Services and Building
-
-            // Allow custom service injection
-            injection?.Invoke(services, configuration);
-
-            // Build the service provider
-            ServiceProvider = services.BuildServiceProvider();
-
-            #endregion
-
-            // Chain the construction
-            return construction;
-        }
-
+        /// <summary>
+        /// Injects the default exception handler into the framework construction
+        /// </summary>
+        /// <param name="construction">The construction</param>
+        /// <returns></returns>
         public static FrameworkConstruction AddDefaultExceptionHandler(this FrameworkConstruction construction)
         {
-            // Bind a static instnace of the BaseExceptionHandler
+            // Bind a static instance of the BaseExceptionHandler
             construction.Services.AddSingleton<IExceptionHandler>(new BaseExceptionHandler());
-             
+
             // Chain the construction
             return construction;
         }

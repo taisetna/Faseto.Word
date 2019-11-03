@@ -27,15 +27,21 @@ namespace Dna
             return builder;
         }
 
-        public static FrameworkConstruction AddFileLogger(this FrameworkConstruction construction, string logPath = "log.txt")
+        /// <summary>
+        /// Injects a file logger into the framework construction
+        /// </summary>
+        /// <param name="construction">The construction</param>
+        /// <param name="logPath">The path of the file to log to</param>
+        /// <returns></returns>
+        public static FrameworkConstruction UseFileLogger(this FrameworkConstruction construction, string logPath = "log.txt")
         {
             // Make use of AddLogging extension
             construction.Services.AddLogging(options =>
             {
-                // Add debug logger
+                // Add file logger
                 options.AddFile(logPath);
             });
-
+            
             // Chain the construction
             return construction;
         }
