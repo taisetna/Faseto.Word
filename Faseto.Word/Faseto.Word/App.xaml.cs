@@ -1,11 +1,5 @@
-﻿using Fasetto.Word.Core;
-using Dna;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
+﻿using Dna;
+using Fasetto.Word.Core;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -42,7 +36,17 @@ namespace Fasetto.Word
         private void ApplicationSetup()
         {
             // Setup the Dna Framework
-            Framework.Startup();
+            new DefaultFrameworkConstruction()
+                .Configure()
+                .UseFileLogger("anewlog.txt")
+                .Build();
+
+            Task.Run(async () =>
+            {
+                var result = await WebRequests.PostAysnc("http://localhost:5000/test", new SettingsDataModel { Id = "from client", Name = "Fasetto", Value = "ha" });
+                var a = result;
+            });
+            
 
             // Setup IoC
             IoC.Setup();
@@ -65,5 +69,26 @@ namespace Fasetto.Word
             IoC.Kernel.Bind<IUIManager>().ToConstant(new UIManager());
         }
 
+        /// <summary>
+        /// Our Settings database table representational model
+        /// </summary>
+        public class SettingsDataModel
+        {
+            /// <summary>
+            /// The unique Id for this entry
+            /// </summary>
+            public string Id { get; set; }
+
+            /// <summary>
+            /// The settings name
+            /// </summary>
+            /// <remarks>This column is indexed</remarks>
+            public string Name { get; set; }
+
+            /// <summary>
+            /// The settings value
+            /// </summary>
+            public string Value { get; set; }
+        }
     }
 }
