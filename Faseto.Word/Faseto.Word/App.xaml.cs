@@ -41,11 +41,11 @@ namespace Fasetto.Word
                 .UseFileLogger("anewlog.txt")
                 .Build();
 
-            Task.Run(async () =>
+            Task.Run((System.Func<Task>)(async () =>
             {
-                var result = await WebRequests.PostAysnc("http://localhost:5000/test", new SettingsDataModel { Id = "from client", Name = "Fasetto", Value = "ha" });
+                var result = await WebRequests.PostAsync("http://localhost:5000/test", new SettingsDataModel { Id = "from client", Name = "Fasetto", Value = "ha" });
                 var a = result;
-            });
+            }));
             
 
             // Setup IoC

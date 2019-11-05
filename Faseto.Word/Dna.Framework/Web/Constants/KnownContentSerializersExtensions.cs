@@ -1,21 +1,28 @@
 ﻿namespace Dna
 {
     /// <summary>
-    /// 
+    /// Extension methods for <see cref="KnownContentSerializers"/>
     /// </summary>
     public static class KnownContentSerializersExtensions
     {
-        public static string ToMimeString(this KnownConentSerializers serializers)
+        /// <summary>
+        /// Takes a known serializer type and returns the Mime type associated with it
+        /// </summary>
+        /// <param name="serializer">The serializer</param>
+        /// <returns></returns>
+        public static string ToMimeString(this KnownContentSerializers serializer)
         {
             // Switch on the serializer
-            switch (serializers)
+            switch (serializer)
             {
                 // Json
-                case KnownConentSerializers.Json:
+                case KnownContentSerializers.Json:
                     return "application/json";
+
                 // XML
-                case KnownConentSerializers.Xml:
+                case KnownContentSerializers.Xml:
                     return "application/xml";
+
                 // Unknown
                 default:
                     return "application/octet-stream";
