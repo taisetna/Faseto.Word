@@ -1,0 +1,54 @@
+[2020-01-10 10:12:13] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 10:12:17] Request starting HTTP/1.1 GET http://localhost:5000/  
+[2020-01-10 10:12:18] Executing action method Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) with arguments ((null)) - ModelState is Valid
+[2020-01-10 10:12:19] Entity Framework Core 2.0.3-rtm-10026 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+[2020-01-10 10:12:21] Executed DbCommand (545ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+[2020-01-10 10:12:22] Executed DbCommand (269ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+[2020-01-10 10:12:27] Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+[2020-01-10 10:12:29] Executed action Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) in 10572.1428ms
+[2020-01-10 10:12:29] Request finished in 11372.1876ms 200 text/html; charset=utf-8
+[2020-01-10 10:12:30] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+[2020-01-10 10:12:30] Request finished in 27.5786ms 404 
+[2020-01-10 10:59:43] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 10:59:58] Request starting HTTP/1.1 GET http://localhost:5000/  
+[2020-01-10 10:59:59] Executing action method Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) with arguments ((null)) - ModelState is Valid
+[2020-01-10 11:00:01] Entity Framework Core 2.0.3-rtm-10026 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+[2020-01-10 11:00:02] Executed DbCommand (467ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+[2020-01-10 11:00:02] Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+[2020-01-10 11:00:08] Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+[2020-01-10 11:00:09] Executed action Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) in 10428.3131ms
+[2020-01-10 11:00:10] Request finished in 11690.376ms 200 text/html; charset=utf-8
+[2020-01-10 11:00:23] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 11:02:51] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 11:03:03] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 11:15:14] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2020-01-10 11:15:46] Request starting HTTP/1.1 GET http://localhost:5000/  
+[2020-01-10 11:15:47] Executing action method Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) with arguments ((null)) - ModelState is Valid
+[2020-01-10 11:16:04] Entity Framework Core 2.0.3-rtm-10026 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+[2020-01-10 11:16:05] Executed DbCommand (394ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+[2020-01-10 11:16:05] Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+[2020-01-10 11:16:10] Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+[2020-01-10 11:16:11] Executed action Fasetto.Word.Web.Server.HomeController.Index (Fasetto.Word.Web.Server) in 24107.6969ms
+[2020-01-10 11:16:11] Request finished in 25068.7913ms 200 text/html; charset=utf-8
+[2020-01-10 11:22:38] User profile is available. Using 'C:\Users\taise\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
